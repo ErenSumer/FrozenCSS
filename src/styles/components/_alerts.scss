@@ -1,0 +1,64 @@
+/* Base alert styles */
+.alert {
+  padding: 1rem 1.5rem; /* Adjust padding for better spacing */
+  margin-bottom: 1rem;
+  border: 1px solid transparent; /* Reset default border */
+  border-radius: 0.25rem;
+
+  /* Add a subtle box shadow for visual depth */
+  box-shadow: 0 0.1rem 0.25rem rgba(0, 0, 0, 0.05);
+}
+
+/* Alert variants (colors can be customized) */
+.alert-primary {
+  color: #004085;
+  background-color: #cce5ff;
+  border-color: #cce5ff; /* Match background for a seamless look */
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #d4edda;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f8d7da;
+}
+
+/* Dismissible alert styles */
+.alert-dismissible {
+  position: relative; /* Required for close button positioning */
+  padding-right: 2.5rem; /* Make room for close button */
+}
+
+.alert-dismissible .close {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); /* Center vertically */
+  right: 1rem; /* Adjust margin for better positioning */
+  padding: 0.5rem 0.75rem; /* Reduce padding slightly */
+  font-size: 1.1rem; /* Increase font size for better visibility */
+  line-height: 1; /* Ensure close button text fits on one line */
+  color: inherit; /* Inherit alert's color */
+  text-decoration: none; /* Remove default underline */
+  transition: opacity 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.alert-dismissible .close:hover {
+  opacity: 0.7; /* Reduce opacity on hover for a subtle effect */
+}
+
+/* Alert link styles */
+.alert-link {
+  font-weight: bold; /* Use bold for stronger emphasis */
+  text-decoration: underline; /* Add underline for clearer visual indication */
+}
+
+/* Last paragraph margin reset (optional, can be customized) */
+.alert p:last-child {
+  margin-bottom: 0;
+}

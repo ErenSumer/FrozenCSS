@@ -1,0 +1,41 @@
+.tabs {
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-header {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+
+  li {
+    padding: 1rem 1.5rem;
+    margin-bottom: -1px;
+    cursor: pointer;
+    text-align: center;
+
+    &.active {
+      background: $primary;
+      color: #fff;
+      border-bottom: 1px solid #fff;
+    }
+  }
+}
+
+.tab-content {
+  flex-grow: 1;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 0.5rem 0.5rem;
+
+  div {
+    padding: 1rem;
+
+    &.active {
+      display: block;
+    }
+
+    &:not(.active) {
+      display: none;
+    }
+  }
+}

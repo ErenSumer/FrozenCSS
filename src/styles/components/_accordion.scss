@@ -1,0 +1,47 @@
+$primary-color: #3498db;
+$secondary-color: #ecf0f1;
+$accent-color: #2980b9;
+
+.accordion-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 700px; /* Adjust width as desired */
+  margin: 0 auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-tabs {
+  display: flex;
+  overflow-x: auto;
+  background-color: $primary-color;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px 5px 0 0;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.accordion-item-heading {
+  padding: 5px 10px;
+  cursor: pointer;
+  font-weight: bold;
+  border-bottom: 2px solid transparent; /* Reset default underline */
+  transition: all 0.2s ease-in-out;
+}
+
+.accordion-item-heading.active {
+  border-bottom: 2px solid $accent-color; /* Active tab style */
+}
+
+.accordion-content {
+  flex: 1; /* Take up remaining space */
+  padding: 20px;
+  background-color: $secondary-color;
+  border-radius: 0 0 5px 5px;
+  overflow-y: auto; /* Enable scrollbar for long content */
+}
+
+.accordion-item-content {
+  margin-bottom: 15px;
+}

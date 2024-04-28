@@ -1,0 +1,14 @@
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-center {
+  text-align: center;
+}
+
+@each $font in $font-stack {
+ .font-#{$font} {
+    font-family: #{$font};
+  }
+}

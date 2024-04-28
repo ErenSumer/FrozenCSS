@@ -1,0 +1,30 @@
+.breadcrumb {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.breadcrumb-item {
+  margin-right: 0.5rem;
+
+  a {
+    text-decoration: none;
+    color: $gray-700;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+.breadcrumb-item.active {
+  color: $gray-500;
+}
+.breadcrumb-sm {
+  font-size: 0.875rem;
+}
+
+.breadcrumb-lg {
+  font-size: 1.25rem;
+}

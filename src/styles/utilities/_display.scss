@@ -1,0 +1,27 @@
+$display-values: (
+  "none": "none",
+  "inline": "inline",
+  "block": "block",
+  "inline-block": "inline-block",
+  "flex": "flex",
+  "inline-flex": "inline-flex",
+  "grid": "grid",
+  "inline-grid": "inline-grid",
+  "table": "table",
+  "inline-table": "inline-table",
+  "list-item": "list-item",
+  "contents": "contents",
+);
+
+@each $key, $value in $display-values {
+  .d-#{$key} {
+    display: $value;
+    
+  }
+}
+.float-start{
+  float: left;
+}
+.float-end{
+  float: right;
+}

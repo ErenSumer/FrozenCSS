@@ -1,0 +1,103 @@
+$colors: (
+  transparent: transparent,
+  current: currentColor,
+  black: (
+    base: #000,
+    light: rgba(0, 0, 0, 0.5),
+    lighter: rgba(0, 0, 0, 0.25),
+  ),
+  white: (
+    base: #fff,
+    dark: rgba(255, 255, 255, 0.5),
+    darker: rgba(255, 255, 255, 0.25),
+  ),
+  gray: (
+    base: #808080,
+    light: #c0c0c0,
+    lighter: #e0e0e0,
+    dark: #606060,
+    darker: #404040,
+  ),
+  emerald: (
+    base: #2ecc71,
+    light: #55e68f,
+    lighter: #84e1a9,
+    dark: #27ae60,
+    darker: #1f8a4c,
+  ),
+  indigo: (
+    base: #3f51b5,
+    light: #6772e5,
+    lighter: #9599e2,
+    dark: #303f9f,
+    darker: #283593,
+  ),
+  yellow: (
+    base: #f1c40f,
+    light: #f7d768,
+    lighter: #fbe4a6,
+    dark: #e6ac00,
+    darker: #b78100,
+  ),
+  pink: (
+    base: #e83e8c,
+    light: #f46de2,
+    lighter: #f991d7,
+    dark: #d92d67,
+    darker: #b71c4a,
+  ),
+  purple: (
+    base: #9b59b6,
+    light: #b960f5,
+    lighter: #d270f9,
+    dark: #7e38b5,
+    darker: #6a2b93,
+  ),
+  red: (
+    base: #e74c3c,
+    light: #f26d6d,
+    lighter: #f98a8a,
+    dark: #d93d3d,
+    darker: #b72c2c,
+  ),
+  blue: (
+    base: #2980b9,
+    light: #5e90e5,
+    lighter: #8ec5f2,
+    dark: #1e6091,
+    darker: #154c73,
+  ),
+  green: (
+    base: #27ae60,
+    light: #5cd38f,
+    lighter: #84e1a9,
+    dark: #1f8a4c,
+    darker: #155734,
+  ),
+  orange: (
+    base: #f39c12,
+   light: #f7b768,
+    lighter: #fad1a6,
+    dark: #e68a00,
+    darker: #b76100,
+  ),
+);
+
+@mixin color-classes($attribute, $prefix: "-", $separator: "-") {
+  @each $name, $color in $colors {
+    @if type-of($color) == "map" {
+      @each $tone, $hex in $color {
+        .#{$prefix}-#{"#{$name}"}#{$separator}#{$tone} {
+          #{$attribute}: $hex;
+        }
+      }
+    } @else {
+      .#{$prefix}-#{$name} {
+        #{$attribute}: $color;
+      }
+    }
+  }
+}
+
+@include color-classes("background-color", "bg");
+@include color-classes("color", "text");

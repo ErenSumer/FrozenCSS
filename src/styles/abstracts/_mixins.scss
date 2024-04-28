@@ -1,0 +1,102 @@
+@mixin xs {
+  @media (min-width: $bp-xs) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (min-width: $bp-sm) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: $bp-md) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: $bp-lg) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: $bp-xl) {
+    @content;
+  }
+}
+
+@mixin container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+// Breakpoint mixins
+@media (min-width: $bp-sm) {
+  .container {
+    max-width: $container-sm;
+  }
+}
+
+@media (min-width: $bp-md) {
+  .container {
+    max-width: $container-md;
+  }
+}
+
+@media (min-width: $bp-lg) {
+  .container {
+    max-width: $container-lg;
+  }
+}
+
+@media (min-width: $bp-xl) {
+  .container {
+    max-width: $container-xl;
+  }
+}
+@mixin container-fluid {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: $bp-xl) {
+  .container-fluid {
+    width:100%;
+  }
+}
+@each $name, $width in $container-sizes {
+  .container-#{$name} {
+    @include container;
+
+    @media (min-width: $bp-sm) {
+      max-width: $width;
+    }
+  }
+}
+@mixin make-gutters($gutter) {
+  margin-right: -$gutter;
+  margin-left: -$gutter;
+
+  > * {
+    padding-right: $gutter;
+    padding-left: $gutter;
+  }
+}
+
+@mixin make-row($gutter) {
+  @include make-gutters($gutter);
+}
+
+@mixin make-col($gutter) {
+  padding-right: $gutter / 2;
+  padding-left: $gutter / 2;
+}
+

@@ -1,0 +1,156 @@
+// Grid variables
+$grid-columns: 12;
+$grid-gutter-width: 30px;
+
+// Breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 480px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px
+);
+
+$container-max-widths: (
+  sm: 420px,
+  md: 720px,
+  lg: 960px,
+  xl: 1200px
+);
+
+// Grid mixin
+@mixin make-grid-columns($columns, $gutter-width) {
+  @for $i from 1 through $columns {
+   .col-#{$i} {
+      flex: 0 0 calc($i / $grid-columns);
+      max-width: calc($i / $grid-columns);
+    }
+  }
+ .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -$gutter-width;
+    margin-right: -$gutter-width;
+  }
+ .col {
+    flex: 1;
+    padding-left: $gutter-width;
+    padding-right: $gutter-width;
+  }
+}
+
+// Generate grid classes
+@include make-grid-columns($grid-columns, $grid-gutter-width);
+
+// Responsive grid classes
+@media (min-width: #{map-get($grid-breakpoints, sm)}) {
+  @include make-grid-columns($grid-columns, $grid-gutter-width);
+ .col-sm {
+    flex: 1;
+  }
+  @for $i from 1 through $grid-columns {
+   .col-sm-#{$i} {
+      flex: 0 0 calc($i / $grid-columns);
+      max-width: calc($i / $grid-columns);
+    }
+  }
+}
+
+@media (min-width: #{map-get($grid-breakpoints, md)}) {
+  @include make-grid-columns($grid-columns, $grid-gutter-width);
+ .col-md {
+    flex: 1;
+  }
+  @for $i from 1 through $grid-columns {
+   .col-md-#{$i} {
+      flex: 0 0 calc($i / $grid-columns);
+      max-width: calc($i / $grid-columns);
+    }
+  }
+}
+
+@media (min-width: #{map-get($grid-breakpoints, lg)}) {
+  @include make-grid-columns($grid-columns, $grid-gutter-width);
+ .col-lg {
+    flex: 1;
+  }
+  @for $i from 1 through $grid-columns {
+   .col-lg-#{$i} {
+      flex: 0 0 calc($i / $grid-columns);
+      max-width: calc($i / $grid-columns);
+    }
+  }
+}
+
+@media (min-width: #{map-get($grid-breakpoints, xl)}) {
+  @include make-grid-columns($grid-columns, $grid-gutter-width);
+ .col-xl {
+    flex: 1;
+  }
+  @for $i from 1 through $grid-columns {
+   .col-xl-#{$i} {
+      flex: 0 0 calc($i / $grid-columns);
+      max-width: calc($i / $grid-columns);
+    }
+  }
+}
+
+// Auto-width columns
+.col-auto {
+  flex: 0 0 auto;
+  max-width: none;
+}
+
+// Row columns classes
+.row-cols-1 {
+  --bs-gutter-x: 0;
+}
+
+.row-cols-2 {
+  --bs-gutter-x: 0.5 * $grid-gutter-width;
+}
+
+.row-cols-3 {
+  --bs-gutter-x: 0.33 * $grid-gutter-width;
+}
+
+.row-cols-4 {
+  --bs-gutter-x: 0.25 * $grid-gutter-width;
+}
+
+.row-cols-5 {
+  --bs-gutter-x: 0.2 * $grid-gutter-width;
+}
+
+// Container styles
+.container {
+  width: 100%;
+  padding-left: $grid-gutter-width;
+  padding-right: $grid-gutter-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: #{map-get($grid-breakpoints, sm)}) {
+ .container {
+    max-width: #{map-get($container-max-widths, sm)};
+  }
+}
+
+@media (min-width: #{map-get($grid-breakpoints, md)}) {
+ .container {
+    max-width: #{map-get($container-max-widths, md)};
+  }
+}
+
+@media (min-width: #{map-get($grid-breakpoints, lg)}) {
+ .container {
+    max-width: #{map-get($container-max-widths, lg)};
+  }
+}
+
+@media (min-width: #{map-get($grid-breakpoints, xl)}) {
+ .container {
+    max-width: #{map-get($container-max-widths, xl)};
+  }
+}

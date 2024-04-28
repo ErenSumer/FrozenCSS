@@ -1,0 +1,34 @@
+// Border Widths
+$border-widths: (
+  0: 0,
+  1: 1px,
+  2: 2px,
+  3: 3px,
+  4: 4px,
+  5: 5px
+);
+
+// Border Sides
+$border-sides: (
+  null: '',
+  t: '-top',
+  r: '-right',
+  b: '-bottom',
+  l: '-left'
+);
+
+// Generate utilities
+@each $name, $width in $border-widths {
+  @each $side-name, $side-suffix in $border-sides {
+    @if $side-name == null {
+      .border#{$side-suffix}-#{$name} {
+        border#{$side-suffix}-width: $width; 
+      }
+    } @else {
+      .border#{$side-suffix}-#{$name} {
+        border#{$side-suffix}-width: $width;
+      }
+    }
+  }
+}
+

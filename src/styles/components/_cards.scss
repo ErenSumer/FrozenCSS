@@ -1,0 +1,43 @@
+.card {
+  background: #ffffff;
+  border: 1px solid $gray-300;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.card-link {
+  @extend .card;
+  color: rgb(26, 20, 132);
+
+  &:hover {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.card-inverse {
+  @extend .card;
+  color: white;
+  background: $gray-900;
+}
+
+.card-horizontal {
+  @extend .card;
+  display: flex;
+
+  .card-img {
+    width: 30%;
+  }
+
+  .card-content {
+    width: 70%;
+    padding-left: 1rem;
+  }
+}
