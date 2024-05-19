@@ -1,0 +1,162 @@
+// Flexbox utility classes
+
+// Flex container
+.flex {
+  display: flex;
+}
+
+// Flex direction
+.flex-direction {
+  &-row {
+    flex-direction: row;
+  }
+  &-row-reverse {
+    flex-direction: row-reverse;
+  }
+  &-column {
+    flex-direction: column;
+  }
+  &-column-reverse {
+    flex-direction: column-reverse;
+  }
+}
+
+// Flex wrap
+.flex-wrap {
+  & {
+    flex-wrap: wrap;
+  }
+  &-nowrap {
+    flex-wrap: nowrap;
+  }
+  &-wrap-reverse {
+    flex-wrap: wrap-reverse;
+  }
+}
+
+// Flex justify content
+.justify-content {
+  &-start {
+    justify-content: flex-start;
+  }
+  &-end {
+    justify-content: flex-end;
+  }
+  &-center {
+    justify-content: center;
+  }
+  &-between {
+    justify-content: space-between;
+  }
+  &-around {
+    justify-content: space-around;
+  }
+}
+
+// Flex align items
+.align-items {
+  &-start {
+    align-items: flex-start;
+  }
+  &-end {
+    align-items: flex-end;
+  }
+  &-center {
+    align-items: center;
+  }
+  &-baseline {
+    align-items: baseline;
+  }
+  &-stretch {
+    align-items: stretch;
+  }
+}
+
+// Flex align content
+.align-content {
+  &-start {
+    align-content: flex-start;
+  }
+  &-end {
+    align-content: flex-end;
+  }
+  &-center {
+    align-content: center;
+  }
+  &-between {
+    align-content: space-between;
+  }
+  &-around {
+    align-content: space-around;
+  }
+  &-stretch {
+    align-content: stretch;
+  }
+}
+
+// Flex grow and shrink
+.flex-grow {
+  flex-grow: 1;
+}
+
+.flex-shrink {
+  flex-shrink: 1;
+}
+
+// Flex basis
+.flex-basis {
+  &-auto {
+    flex-basis: auto;
+  }
+  &-full {
+    flex-basis: 100%;
+  }
+  &-half {
+    flex-basis: 50%;
+  }
+  &-third {
+    flex-basis: 33.33%;
+  }
+  &-quarter {
+    flex-basis: 25%;
+  }
+}
+// Flexbox utility classes
+
+// Flex order
+.flex-order {
+  &-1 {
+    order: 1;
+  }
+  &-2 {
+    order: 2;
+  }
+  &-3 {
+    order: 3;
+  }
+  &-4 {
+    order: 4;
+  }
+  &-5 {
+    order: 5;
+  }
+}
+
+// Flexbox gap
+.gap {
+  &-xs {
+    gap: 0.5rem;
+  }
+  &-sm {
+    gap: 1rem;
+  }
+  &-md {
+    gap: 1.5rem;
+  }
+  &-lg {
+    gap: 2rem;
+  }
+  &-xl {
+    gap: 2.5rem;
+  }
+}

@@ -1,0 +1,40 @@
+.tree-view {
+  &__item {
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    &__toggle {
+      display: inline-block;
+      margin-right: 0.5rem;
+      cursor: pointer;
+      user-select: none;
+
+      &::before {
+        content: "\25B6"; // Right-pointing triangle
+        display: inline-block;
+        transform: rotate(0deg);
+        transition: transform 0.3s;
+      }
+
+      &--open::before {
+        transform: rotate(90deg); // Rotate the triangle 90 degrees
+      }
+    }
+
+    &__label {
+      display: inline-block;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    &__children {
+      margin-left: 1.5rem;
+      display: none;
+
+      &--open {
+        display: block;
+      }
+    }
+  }
+}

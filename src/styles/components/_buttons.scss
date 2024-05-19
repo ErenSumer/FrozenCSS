@@ -1,29 +1,26 @@
 .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
   padding: 0.5rem 1rem;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-}
-.btn-primary {
-  @extend .btn;
-  background: $color-primary;
-  color: #fff;
-}
+  border-radius: 0.25rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
 
-.btn-secondary {
-  @extend .btn;
-  background: $color-secondary;
-}
-.btn-sm {
-  font-size: 0.8rem;
-  padding: 0.3em 0.7em;
-}
+  &--primary {
+    background-color: #007bff;
+    color: #fff;
 
-.btn-lg {
-  font-size: 1.1rem;
-  padding: 0.8em 1.2em;
+    &:hover {
+      background-color: darken(#007bff, 10%);
+    }
+  }
+
+  &--secondary {
+    background-color: #6c757d;
+    color: #fff;
+
+    &:hover {
+      background-color: darken(#6c757d, 10%);
+    }
+  }
 }

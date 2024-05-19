@@ -1,0 +1,35 @@
+.parallax {
+  position: relative;
+  height: 500px; // Adjust the height as needed
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 1px;
+
+  &__layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform-style: preserve-3d;
+  }
+
+  &__layer--back {
+    transform: translateZ(-1px) scale(2);
+  }
+
+  &__layer--base {
+    transform: translateZ(0);
+  }
+
+  &__layer--front {
+    transform: translateZ(1px);
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+}

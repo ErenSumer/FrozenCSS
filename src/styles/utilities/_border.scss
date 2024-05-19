@@ -1,34 +1,99 @@
-// Border Widths
-$border-widths: (
-  0: 0,
-  1: 1px,
-  2: 2px,
-  3: 3px,
-  4: 4px,
-  5: 5px
-);
+// Border Utilities
 
-// Border Sides
-$border-sides: (
-  null: '',
-  t: '-top',
-  r: '-right',
-  b: '-bottom',
-  l: '-left'
-);
-
-// Generate utilities
-@each $name, $width in $border-widths {
-  @each $side-name, $side-suffix in $border-sides {
-    @if $side-name == null {
-      .border#{$side-suffix}-#{$name} {
-        border#{$side-suffix}-width: $width; 
-      }
-    } @else {
-      .border#{$side-suffix}-#{$name} {
-        border#{$side-suffix}-width: $width;
+// Border Width
+@each $prop,
+  $abbrev
+    in (
+      border: b,
+      border-top: bt,
+      border-right: br,
+      border-bottom: bb,
+      border-left: bl
+    )
+{
+  @each $breakpoint, $value in $breakpoints {
+    @media (min-width: $value) {
+      @for $i from 0 through 5 {
+        .#{$abbrev}-#{$breakpoint}-#{$i} {
+          #{$prop}-width: #{$i}px;
+        }
       }
     }
   }
 }
 
+// Border Style
+@each $prop,
+  $abbrev
+    in (
+      border: b,
+      border-top: bt,
+      border-right: br,
+      border-bottom: bb,
+      border-left: bl
+    )
+{
+  @each $breakpoint, $value in $breakpoints {
+    @media (min-width: $value) {
+      .#{$abbrev}-#{$breakpoint}-solid {
+        #{$prop}-style: solid;
+      }
+      .#{$abbrev}-#{$breakpoint}-dashed {
+        #{$prop}-style: dashed;
+      }
+      .#{$abbrev}-#{$breakpoint}-dotted {
+        #{$prop}-style: dotted;
+      }
+      .#{$abbrev}-#{$breakpoint}-double {
+        #{$prop}-style: double;
+      }
+      .#{$abbrev}-#{$breakpoint}-none {
+        #{$prop}-style: none;
+      }
+    }
+  }
+}
+
+// Border Color
+$colors: (
+  "primary": #007bff,
+  "secondary": #6c757d,
+  "success": #28a745,
+  "danger": #dc3545,
+  "warning": #ffc107,
+  "info": #17a2b8,
+  "light": #f8f9fa,
+  "dark": #343a40,
+);
+
+@each $prop,
+  $abbrev
+    in (
+      border: b,
+      border-top: bt,
+      border-right: br,
+      border-bottom: bb,
+      border-left: bl
+    )
+{
+  @each $breakpoint, $value in $breakpoints {
+    @media (min-width: $value) {
+      @each $color, $value in $colors {
+        .#{$abbrev}-#{$breakpoint}-#{$color} {
+          #{$prop}-color: $value;
+        }
+      }
+    }
+  }
+}
+
+// Border Radius
+@each $breakpoint, $value in $breakpoints {
+  @media (min-width: $value) {
+    @for $i from 0 through 10 {
+      .rounded-#{$breakpoint}-#{$i} {
+        border-radius: #{$i}px;
+      }
+    }
+  }
+}

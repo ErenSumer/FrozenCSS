@@ -1,0 +1,62 @@
+.stepper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+
+  &__step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    &:not(:last-child) {
+      margin-right: 2rem;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 1.5rem;
+        left: calc(100% + 1rem);
+        width: 2rem;
+        height: 0.25rem;
+        background-color: #ccc;
+      }
+    }
+  }
+
+  &__icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: #ccc;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+
+    &--active {
+      background-color: #007bff;
+    }
+
+    &--completed {
+      background-color: #28a745;
+    }
+  }
+
+  &__label {
+    font-size: 0.9rem;
+    color: #6c757d;
+
+    &--active {
+      color: #007bff;
+      font-weight: bold;
+    }
+
+    &--completed {
+      color: #28a745;
+      font-weight: bold;
+    }
+  }
+}

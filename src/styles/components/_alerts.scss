@@ -1,64 +1,75 @@
-/* Base alert styles */
 .alert {
-  padding: 1rem 1.5rem; /* Adjust padding for better spacing */
+  position: relative;
+  padding: 0.75rem 1.25rem;
   margin-bottom: 1rem;
-  border: 1px solid transparent; /* Reset default border */
+  border: 1px solid transparent;
   border-radius: 0.25rem;
 
-  /* Add a subtle box shadow for visual depth */
-  box-shadow: 0 0.1rem 0.25rem rgba(0, 0, 0, 0.05);
-}
+  &--primary {
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+  }
 
-/* Alert variants (colors can be customized) */
-.alert-primary {
-  color: #004085;
-  background-color: #cce5ff;
-  border-color: #cce5ff; /* Match background for a seamless look */
-}
+  &--secondary {
+    color: #383d41;
+    background-color: #e2e3e5;
+    border-color: #d6d8db;
+  }
 
-.alert-success {
-  color: #155724;
-  background-color: #d4edda;
-  border-color: #d4edda;
-}
+  &--success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+  }
 
-.alert-danger {
-  color: #721c24;
-  background-color: #f8d7da;
-  border-color: #f8d7da;
-}
+  &--danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+  }
 
-/* Dismissible alert styles */
-.alert-dismissible {
-  position: relative; /* Required for close button positioning */
-  padding-right: 2.5rem; /* Make room for close button */
-}
+  &--warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+  }
 
-.alert-dismissible .close {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%); /* Center vertically */
-  right: 1rem; /* Adjust margin for better positioning */
-  padding: 0.5rem 0.75rem; /* Reduce padding slightly */
-  font-size: 1.1rem; /* Increase font size for better visibility */
-  line-height: 1; /* Ensure close button text fits on one line */
-  color: inherit; /* Inherit alert's color */
-  text-decoration: none; /* Remove default underline */
-  transition: opacity 0.3s ease-in-out;
-  cursor: pointer;
-}
+  &--info {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+  }
 
-.alert-dismissible .close:hover {
-  opacity: 0.7; /* Reduce opacity on hover for a subtle effect */
-}
+  &--light {
+    color: #818182;
+    background-color: #fefefe;
+    border-color: #fdfdfe;
+  }
 
-/* Alert link styles */
-.alert-link {
-  font-weight: bold; /* Use bold for stronger emphasis */
-  text-decoration: underline; /* Add underline for clearer visual indication */
-}
+  &--dark {
+    color: #1b1e21;
+    background-color: #d6d8d9;
+    border-color: #c6c8ca;
+  }
 
-/* Last paragraph margin reset (optional, can be customized) */
-.alert p:last-child {
-  margin-bottom: 0;
+  &__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.75rem 1.25rem;
+    color: inherit;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }

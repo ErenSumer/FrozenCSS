@@ -1,156 +1,95 @@
-// Grid variables
-$grid-columns: 12;
-$grid-gutter-width: 30px;
+@use "sass:math";
 
-// Breakpoints
-$grid-breakpoints: (
-  xs: 0,
-  sm: 480px,
-  md: 768px,
-  lg: 1024px,
-  xl: 1280px
-);
-
-$container-max-widths: (
-  sm: 420px,
-  md: 720px,
-  lg: 960px,
-  xl: 1200px
-);
-
-// Grid mixin
-@mixin make-grid-columns($columns, $gutter-width) {
-  @for $i from 1 through $columns {
-   .col-#{$i} {
-      flex: 0 0 calc($i / $grid-columns);
-      max-width: calc($i / $grid-columns);
-    }
-  }
- .row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: -$gutter-width;
-    margin-right: -$gutter-width;
-  }
- .col {
-    flex: 1;
-    padding-left: $gutter-width;
-    padding-right: $gutter-width;
-  }
-}
-
-// Generate grid classes
-@include make-grid-columns($grid-columns, $grid-gutter-width);
-
-// Responsive grid classes
-@media (min-width: #{map-get($grid-breakpoints, sm)}) {
-  @include make-grid-columns($grid-columns, $grid-gutter-width);
- .col-sm {
-    flex: 1;
-  }
-  @for $i from 1 through $grid-columns {
-   .col-sm-#{$i} {
-      flex: 0 0 calc($i / $grid-columns);
-      max-width: calc($i / $grid-columns);
-    }
-  }
-}
-
-@media (min-width: #{map-get($grid-breakpoints, md)}) {
-  @include make-grid-columns($grid-columns, $grid-gutter-width);
- .col-md {
-    flex: 1;
-  }
-  @for $i from 1 through $grid-columns {
-   .col-md-#{$i} {
-      flex: 0 0 calc($i / $grid-columns);
-      max-width: calc($i / $grid-columns);
-    }
-  }
-}
-
-@media (min-width: #{map-get($grid-breakpoints, lg)}) {
-  @include make-grid-columns($grid-columns, $grid-gutter-width);
- .col-lg {
-    flex: 1;
-  }
-  @for $i from 1 through $grid-columns {
-   .col-lg-#{$i} {
-      flex: 0 0 calc($i / $grid-columns);
-      max-width: calc($i / $grid-columns);
-    }
-  }
-}
-
-@media (min-width: #{map-get($grid-breakpoints, xl)}) {
-  @include make-grid-columns($grid-columns, $grid-gutter-width);
- .col-xl {
-    flex: 1;
-  }
-  @for $i from 1 through $grid-columns {
-   .col-xl-#{$i} {
-      flex: 0 0 calc($i / $grid-columns);
-      max-width: calc($i / $grid-columns);
-    }
-  }
-}
-
-// Auto-width columns
-.col-auto {
-  flex: 0 0 auto;
-  max-width: none;
-}
-
-// Row columns classes
-.row-cols-1 {
-  --bs-gutter-x: 0;
-}
-
-.row-cols-2 {
-  --bs-gutter-x: 0.5 * $grid-gutter-width;
-}
-
-.row-cols-3 {
-  --bs-gutter-x: 0.33 * $grid-gutter-width;
-}
-
-.row-cols-4 {
-  --bs-gutter-x: 0.25 * $grid-gutter-width;
-}
-
-.row-cols-5 {
-  --bs-gutter-x: 0.2 * $grid-gutter-width;
-}
-
-// Container styles
-.container {
+// Mixins
+@mixin make-container($padding-x: $grid-gutter) {
   width: 100%;
-  padding-left: $grid-gutter-width;
-  padding-right: $grid-gutter-width;
-  margin-left: auto;
+  padding-right: $padding-x;
+  padding-left: $padding-x;
   margin-right: auto;
+  margin-left: auto;
 }
 
-@media (min-width: #{map-get($grid-breakpoints, sm)}) {
- .container {
-    max-width: #{map-get($container-max-widths, sm)};
+@mixin make-row($gutter: $grid-gutter) {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -$gutter / 2;
+  margin-left: -$gutter / 2;
+}
+
+@mixin make-col($size, $columns: $grid-columns) {
+  flex: 0 0 percentage($size / $columns);
+  max-width: percentage($size / $columns);
+  padding-right: math.div($grid-gutter, 2) or calc($grid-gutter / 2);
+  padding-left: math.div($grid-gutter, 2) or calc($grid-gutter / 2);
+}
+
+// Grid
+.container {
+  @include make-container();
+
+  @each $breakpoint, $value in $breakpoints {
+    @media (min-width: $value) {
+      @include make-container();
+    }
   }
 }
 
-@media (min-width: #{map-get($grid-breakpoints, md)}) {
- .container {
-    max-width: #{map-get($container-max-widths, md)};
+.row {
+  @include make-row();
+}
+
+@for $i from 1 through $grid-columns {
+  .col-#{$i} {
+    @include make-col($i);
+  }
+
+  @each $breakpoint, $value in $breakpoints {
+    @media (min-width: $value) {
+      .col-#{$breakpoint}-#{$i} {
+        @include make-col($i);
+      }
+    }
   }
 }
 
-@media (min-width: #{map-get($grid-breakpoints, lg)}) {
- .container {
-    max-width: #{map-get($container-max-widths, lg)};
-  }
-}
+// Utilities
+@each $breakpoint, $value in $breakpoints {
+  @media (min-width: $value) {
 
-@media (min-width: #{map-get($grid-breakpoints, xl)}) {
- .container {
-    max-width: #{map-get($container-max-widths, xl)};
+
+
+    // Margin
+    .m-#{$breakpoint}-0 {
+      margin: 0;
+    }
+    .mt-#{$breakpoint}-0 {
+      margin-top: 0;
+    }
+    .mr-#{$breakpoint}-0 {
+      margin-right: 0;
+    }
+    .mb-#{$breakpoint}-0 {
+      margin-bottom: 0;
+    }
+    .ml-#{$breakpoint}-0 {
+      margin-left: 0;
+    }
+
+    // Padding
+    .p-#{$breakpoint}-0 {
+      padding: 0;
+    }
+    .pt-#{$breakpoint}-0 {
+      padding-top: 0;
+    }
+    .pr-#{$breakpoint}-0 {
+      padding-right: 0;
+    }
+    .pb-#{$breakpoint}-0 {
+      padding-bottom: 0;
+    }
+    .pl-#{$breakpoint}-0 {
+      padding-left: 0;
+    }
   }
 }

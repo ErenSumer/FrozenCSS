@@ -1,0 +1,45 @@
+.thumbnail {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  padding: 0.25rem;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  transition: box-shadow 0.3s;
+
+  &:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  }
+
+  &__image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.25rem 0.25rem 0 0;
+  }
+
+  &__caption {
+    padding: 0.5rem;
+    color: #333;
+    text-align: center;
+  }
+
+  &--rounded {
+    border-radius: 0.5rem;
+
+    .thumbnail__image {
+      border-radius: 0.5rem 0.5rem 0 0;
+    }
+  }
+
+  &--circle {
+    border-radius: 50%;
+    overflow: hidden;
+
+    .thumbnail__image {
+      border-radius: 50%;
+    }
+  }
+}

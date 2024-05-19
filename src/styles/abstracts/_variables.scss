@@ -163,3 +163,13 @@ $sizes: (
   100: 100%,
   auto: auto,
 );
+// Grid System
+$grid-columns: 12;
+$grid-gutter: 1rem;
+$breakpoints: (
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px,
+  'xxl': 1400px
+);

@@ -21,10 +21,25 @@
 @import "components/dropdown";
 @import "components/carousel";
 @import "components/avatars";
+@import "components/notifications";
 @import "components/badges";
+@import "components/navbars";
+@import "components/pagination";
+@import "components/spinner";
+@import "components/lightbox";
+@import "components/stepper";
+@import "components/parallax";
+@import "components/tree-view";
+@import "components/wizard";
+@import "components/timeline";
+@import "components/sticky";
+@import "components/switch";
+@import "components/thumbnail";
 
 // Layout
 @import "layout/grid";
+@import "layout/flex";
+@import "layout/masonry";
 
 
 // Themes
@@ -35,5 +50,3 @@
 @import "utilities/colors";
 @import "utilities/border";
 @import "utilities/alignment";
-@import "utilities/spacing";
-@import "utilities/display";

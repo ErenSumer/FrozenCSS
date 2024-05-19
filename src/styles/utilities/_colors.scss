@@ -87,12 +87,12 @@ $colors: (
   @each $name, $color in $colors {
     @if type-of($color) == "map" {
       @each $tone, $hex in $color {
-        .#{$prefix}-#{"#{$name}"}#{$separator}#{$tone} {
+        .#{$prefix}-#{"#{""+$name}"}#{$separator}#{$tone} {
           #{$attribute}: $hex;
         }
       }
     } @else {
-      .#{$prefix}-#{$name} {
+      .#{$prefix}-#{""+$name} {
         #{$attribute}: $color;
       }
     }
