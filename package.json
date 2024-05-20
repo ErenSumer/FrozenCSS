@@ -6,11 +6,17 @@
   "scripts": {
     "build": "sass src/styles/main.scss dist/index.css --style=compressed"
   },
-  "keywords": [],
+  "keywords": [
+    "frozen","CSS","framework","frontend","sass","component"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ErenSumer/FrozenCSS.git"
+  },
   "author": "erensumer",
   "license": "MIT",
   "dependencies": {
-    "frozencss": "^1.0.0"
+    "frozencss": "^1.1.0"
   },
   "devDependencies": {
     "sass": "^1.75.0"
