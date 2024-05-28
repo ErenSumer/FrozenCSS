@@ -1,26 +1,72 @@
+// btn component
 .btn {
+  // Base styles
   display: inline-block;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  text-decoration: none;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
+  padding: 1em 2em;
+  border: none;
+  border-radius: 0.25em;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 
-  &--primary {
-    background-color: #007bff;
-    color: #fff;
+  // Default styles
+  background-color: #333;
+  color: #fff;
 
-    &:hover {
-      background-color: darken(#007bff, 10%);
-    }
+  // Hover styles
+  &:hover {
+    background-color: #444;
   }
 
-  &--secondary {
-    background-color: #6c757d;
-    color: #fff;
-
-    &:hover {
-      background-color: darken(#6c757d, 10%);
-    }
+  // Active styles
+  &:active {
+    background-color: #555;
+    box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.5);
   }
+
+  // Disabled styles
+  &:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+  }
+}
+
+// btn sizes
+.btn--small {
+  font-size: 0.875rem;
+  padding: 0.75em 1.5em;
+}
+
+.btn--large {
+  font-size: 1.125rem;
+  padding: 1.25em 3em;
+}
+
+// btn colors
+.btn--primary {
+  background-color: #337ab7;
+  color: #fff;
+}
+
+.btn--secondary {
+  background-color: #666;
+  color: #fff;
+}
+
+.btn--danger {
+  background-color: #d9534f;
+  color: #fff;
+}
+
+.btn--success {
+  background-color: #5cb85c;
+  color: #fff;
+}
+
+// btn block styles
+.btn--block {
+  display: block;
+  width: 100%;
 }

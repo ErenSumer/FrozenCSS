@@ -1,0 +1,49 @@
+// _variables.scss
+$breakpoints: (
+  "sm": 576px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+  "xxl": 1400px,
+);
+
+$colors: (
+  "primary": #007bff,
+  "secondary": #6c757d,
+  "success": #28a745,
+  "danger": #dc3545,
+  "warning": #ffc107,
+  "info": #17a2b8,
+  "light": #f8f9fa,
+  "dark": #343a40,
+);
+
+// _utilities.scss
+// Spacing utilities
+@each $prop, $abbrev in (margin: "m", padding: "p") {
+  @each $size in (0, 1, 2, 3, 4, 5) {
+    .#{$abbrev}-#{$size} {
+      #{$prop}: $size * 0.25rem !important;
+    }
+    .#{$abbrev}t-#{$size} {
+      #{$prop}-top: $size * 0.25rem !important;
+    }
+    .#{$abbrev}r-#{$size} {
+      #{$prop}-right: $size * 0.25rem !important;
+    }
+    .#{$abbrev}b-#{$size} {
+      #{$prop}-bottom: $size * 0.25rem !important;
+    }
+    .#{$abbrev}l-#{$size} {
+      #{$prop}-left: $size * 0.25rem !important;
+    }
+    .#{$abbrev}x-#{$size} {
+      #{$prop}-right: $size * 0.25rem !important;
+      #{$prop}-left: $size * 0.25rem !important;
+    }
+    .#{$abbrev}y-#{$size} {
+      #{$prop}-top: $size * 0.25rem !important;
+      #{$prop}-bottom: $size * 0.25rem !important;
+    }
+  }
+}

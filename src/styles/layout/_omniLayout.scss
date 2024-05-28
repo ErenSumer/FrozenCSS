@@ -1,0 +1,143 @@
+// OmniLayout Variables
+$omni-layout-grid-columns: 12; // Number of grid columns
+$omni-layout-grid-gutter: 20px; // Grid gutter width
+$omni-layout-flex-basis: 0; // Default flex basis
+$omni-layout-flex-grow: 1; // Default flex grow
+$omni-layout-flex-shrink: 1; // Default flex shrink
+
+// Breakpoints
+$breakpoints: (
+  "sm": 0,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+);
+
+// OmniLayout Grid System
+.omni-grid {
+  display: grid;
+  grid-template-columns: repeat($omni-layout-grid-columns, 1fr);
+  grid-gap: $omni-layout-grid-gutter;
+
+  > * {
+    grid-column: span $omni-layout-grid-columns;
+  }
+
+  // Grid Column Span Utilities
+  @each $breakpoint, $value in $breakpoints {
+    @media (min-width: $value) {
+      @for $i from 1 through $omni-layout-grid-columns {
+        > .omni-span-#{$breakpoint}-#{$i} {
+          grid-column: span $i;
+        }
+      }
+    }
+  }
+
+  // Grid Column Start Utilities
+  @each $breakpoint, $value in $breakpoints {
+    @media (min-width: $value) {
+      @for $i from 1 through $omni-layout-grid-columns {
+        > .omni-start-#{$breakpoint}-#{$i} {
+          grid-column-start: $i;
+        }
+      }
+    }
+  }
+
+  // Grid Column End Utilities
+  @each $breakpoint, $value in $breakpoints {
+    @media (min-width: $value) {
+      @for $i from 1 through $omni-layout-grid-columns {
+        > .omni-end-#{$breakpoint}-#{$i} {
+          grid-column-end: $i;
+        }
+      }
+    }
+  }
+}
+
+// OmniLayout Flex System
+.omni-flex {
+  display: flex;
+  flex-wrap: wrap;
+
+  > * {
+    flex: $omni-layout-flex-grow $omni-layout-flex-shrink
+      $omni-layout-flex-basis;
+  }
+
+  // Flex Order Utilities
+  @for $i from 1 through 12 {
+    > .omni-order-#{$i} {
+      order: $i;
+    }
+  }
+}
+
+// OmniLayout Hybrid System (Combines Grid and Flex)
+.omni-hybrid {
+  display: grid;
+  grid-template-columns: repeat($omni-layout-grid-columns, 1fr);
+  grid-gap: $omni-layout-grid-gutter;
+  flex-wrap: wrap;
+
+  > * {
+    grid-column: span 1;
+    flex: $omni-layout-flex-grow $omni-layout-flex-shrink
+      $omni-layout-flex-basis;
+  }
+}
+
+// OmniLayout Utilities
+.omni-push {
+  &-left {
+    margin-left: $omni-layout-grid-gutter;
+  }
+
+  &-right {
+    margin-right: $omni-layout-grid-gutter;
+  }
+}
+
+.omni-pull {
+  &-left {
+    margin-left: -$omni-layout-grid-gutter;
+  }
+
+  &-right {
+    margin-right: -$omni-layout-grid-gutter;
+  }
+}
+
+// OmniLayout Advanced Features
+.omni-nest {
+  display: grid;
+  grid-template-columns: repeat($omni-layout-grid-columns, 1fr);
+  grid-gap: $omni-layout-grid-gutter;
+
+  > * {
+    grid-column: span 1;
+  }
+}
+
+.omni-stack {
+  display: flex;
+  flex-direction: column;
+
+  > * {
+    flex: $omni-layout-flex-grow $omni-layout-flex-shrink
+      $omni-layout-flex-basis;
+  }
+}
+
+.omni-masonry {
+  display: grid;
+  grid-template-columns: repeat($omni-layout-grid-columns, 1fr);
+  grid-gap: $omni-layout-grid-gutter;
+  grid-auto-rows: auto;
+
+  > * {
+    grid-column: span 1;
+  }
+}

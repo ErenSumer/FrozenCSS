@@ -1,13 +1,18 @@
 {
   "name": "frozencss",
-  "version": "1.1.0",
+  "version": "1.1.3",
   "description": "",
   "main": "index.js",
   "scripts": {
     "build": "sass src/styles/main.scss dist/index.css --style=compressed"
   },
   "keywords": [
-    "frozen","CSS","framework","frontend","sass","component"
+    "frozen",
+    "CSS",
+    "framework",
+    "frontend",
+    "sass",
+    "component"
   ],
   "repository": {
     "type": "git",
@@ -16,7 +21,7 @@
   "author": "erensumer",
   "license": "MIT",
   "dependencies": {
-    "frozencss": "^1.1.0"
+    "frozencss": "^1.1.1"
   },
   "devDependencies": {
     "sass": "^1.75.0"
