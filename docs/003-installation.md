@@ -38,4 +38,4 @@ https://cdn.jsdelivr.net/npm/frozencss@1.1.2/dist/css/main.css"
 ### Important Note!
 Using the CDN link may look rewarding but in the production, it is not preffered.
 
-###### Next: [Chapter 3 - Getting Started](003-getting-started.md)
+###### Next: [Chapter 3 - Getting Started](004-getting-started.md)
